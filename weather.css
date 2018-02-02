@@ -1,0 +1,15 @@
+.container{
+	background-color: #121212;
+	height: 800px;
+	width: 0 auto;
+}
+.city{
+	width: 40%;
+	height: 30px;
+	margin: 10%;
+	padding-left:20px;
+}
+.submit{
+	padding: 100px;
+	width: 100px;
+}
