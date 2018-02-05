@@ -22,7 +22,8 @@
 					</div>
 					</div>
 			</div>
-			<div id="sunrise">Sunrise:<p class="rValue"></p></div>	
+			<div id="sunrise">Sunrise:<p class="rValue"></p></div>
+			<div id="display"></div>
 			<div id="sunset">Sunset:<p class="sValue"></p></div>	
 			
 			<div id ="sun"><img class="imgSun"  src="./Sun.jpeg"></div>
@@ -40,6 +41,7 @@ var hour = new Date().getHours();
 		document.getElementById("main").style.backgroundColor = 'navy';
 		document.querySelector("h1").style.color = 'white';
 		document.querySelector("input").style.color = 'white';
+		document.querySelector("display").style.color = 'white';
 	}
 else{
 	document.getElementById("main").style.backgroundColor = '#F2E205';
