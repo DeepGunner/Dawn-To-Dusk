@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<style>
+.imgSun{
+  width: 150px;
+  height: 150px;
+}
+
+#day {
+  width: 1250px;
+  height: 400px;
+  position: relative;
+  background: turquoise;
+  overflow: hidden;
+}
+#sun {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  background:rgba(0,0,0,0);
+}
+</style>
+<body>
+
+<p>
+<div><input id="blank" onkeypress="if(event.keyCode==13) myMove();"></div>
+</p> 
+
+<div id ="day">
+<div id ="sun"><img class="imgSun"  src="/Users/Deepinder/Documents/Sun.jpeg"></div>
+</div>
+
+<script>
+function myMove() {
+  var hour = new Date().getHours();
+  console.log(hour);
+  var elem = document.getElementById("sun");   
+  var pos = 0;
+  var id = setInterval(frame, 9);
+  function frame() {
+    if (pos === (hour*50)) {
+      clearInterval(id);
+    } else {
+      pos++; 
+       
+      elem.style.left = pos + 'px'; 
+    }
+  }
+}
+</script>
+
+</body>
+</html>
