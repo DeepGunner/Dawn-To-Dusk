@@ -17,11 +17,18 @@
 					<div class="cntr">
 					<div class="cntr-innr">
 	  				<label class="search" for="inpt_search">
-						<input id="inpt_search" type="text" onkeypress="if(event.keyCode==13) myMove()" placeholder="....Which City ?" />
+						<input id="inpt_search" type="text" onkeypress="if(event.keyCode==13) myMove()" placeholder="  Enter a place" />
 					</label>
 					</div>
 					</div>
 			</div>
+			<div class="progress">
+        <div class="barOverflow">
+          <div class="bar">
+						<div class="barSun" ><img class="imgSun"  src="./Sun.jpeg"></div>
+					</div>
+        </div>
+      </div>
 			<div id="sunrise">Sunrise:<p class="rValue"></p></div>
 			<div id="display"></div>
 			<div id="sunset">Sunset:<p class="sValue"></p></div>	
@@ -37,22 +44,38 @@
 
 var hour = new Date().getHours();
   console.log(hour);
-	if (hour >=19) {
-		document.getElementById("main").style.backgroundColor = 'navy';
+	if (hour > 18) {
+		document.getElementById("main").style.backgroundColor = 'rgb(46,68,130)';
 		document.querySelector("h1").style.color = 'white';
 		document.querySelector("input").style.color = 'white';
-		document.querySelector("display").style.color = 'white';
+		document.querySelector("#display").style.color = 'white';
 	}
 else{
-	document.getElementById("main").style.backgroundColor = '#F2E205';
+	document.getElementById("main").style.backgroundColor = '	#fbd358';
+	document.querySelector("#sunrise").style.backgroundColor = '#62a1c7';
+	document.querySelector("#sunset").style.backgroundColor = '#62a1c7';
+	document.querySelector("#display").style.backgroundColor = '#4b595e';
+	document.querySelector(".bar").style.borderBottomColor = '#54416d';
+	document.querySelector(".bar").style.borderRightColor = '#54416d';
+
 }
 
 
 function myMove() {
   var hour = new Date().getHours();
   //console.log(hour);
-  var elem = document.getElementById("sun");
-  elem.style.visibility = 'visible';   
+	var elem = document.getElementById("sun");
+	var sunDiv = document.querySelector(".progress");
+	var disp = document.querySelector('#display');
+	var divRise = document.querySelector('#sunrise');
+	var divSet = document.querySelector('#sunset');
+
+	sunDiv.style.visibility = 'visible';
+	disp.style.visibility = 'visible';
+	divRise.style.visibility = 'visible';
+	divSet.style.visibility = 'visible';
+	//elem.style.visibility = 'visible';
+	   
   var pos = 0;
   var id = setInterval(frame, 1);
   function frame() {

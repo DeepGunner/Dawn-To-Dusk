@@ -8,7 +8,8 @@ $(function(){
 
 $('#inpt_search').keyup(function(e){
     if(e.keyCode === 13 ){
-
+    
+    sunProgress();
     var city = $("#inpt_search").val();
     $("#display").text(city);
     $("#inpt_search").val(' ');
@@ -65,10 +66,15 @@ function makeAjaxCall(url, methodType,callback){
   
     
     function processUserDetailsResponse(userData){
-    // var date = new Date(parseInt(userData.query.results.channel.item.condition.date.substr(6)));
-    // console.log(date.getHours());
+      //var xDate = new Date();
+      //console.log(typeof xDate);
+    var date = userData.query.results.channel.item.condition.date
+    console.log(date);
+    xDate=date;
+    console.log();
     var sRise = userData.query.results.channel.astronomy.sunrise;
     var sSet = userData.query.results.channel.astronomy.sunset;
+    
     $('.rValue').text(sRise);
     $('.sValue').text(sSet);
     $('#inpt_search').text("");
@@ -76,7 +82,34 @@ function makeAjaxCall(url, methodType,callback){
     }
     
 
+    function sunProgress(){
+      
+      $(".progress").each(function(){
+  
+      var bar = $(this).find(".bar");
+      var img = $(this).find(".barSun");
+      var val = new Date().getHours();
+      
+    
+      $({p:0}).animate({p:val}, {
+        duration: 5000,
+        easing: "swing",
+        step: function(p) {
+          bar.css({
+            transform: "rotate("+ (45+(p*7.5)) +"deg)", // 100%=180° so: ° = % * 1.8
+            // 45 is to add the needed rotation to have the green borders at the bottom
+          });
+          
+        }
+      });
 
+
+      $("#b").animate({/*left: "+="+perc*/},{
+        duration: 5000,
+        easing:"swing"
+      });
+    });
+  };
 
  
 

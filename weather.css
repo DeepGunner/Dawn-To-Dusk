@@ -1,9 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+.progress{
+  position: fixed;
+  visibility: hidden;
+  margin: 4px;
+  width: 300px; height: 250px;
+  top: 65%;
+  left: 41%;
+  float:left;
+  text-align: center;
+}
+.barOverflow{ /* Wraps the rotating .bar */
+  position: relative;
+  overflow: hidden; /* Comment this line to understand the trick */
+  width: 250px; height: 125px; /* Half circle (overflow) */
+  margin-bottom: -14px; /* bring the numbers up */
+}
+.bar{
+  position: absolute;
+  top: 0; left: 0;
+  width: 250px; height: 250px; /* full circle! */
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 50px solid rgb(148, 148, 148);     /* half gray, */
+  border-bottom-color: indianred;  /* half azure */
+  border-right-color:indianred;
+}
+
+.barSun{
+  position: fixed;
+  width: 45px; height: 45px;
+  
+  top: 83%;
+  left: -11%;
+}
 h1{
   margin-top: 0;
   margin-bottom: 0;
   text-align: center;
   text-shadow: 0.2;
   color: black;
+  font-family: Oswald;
+  font-weight: bold;
   font-size: 45px;
 }
 
@@ -20,7 +59,9 @@ h1{
   top: 30%;
   border-radius: 15px;
   text-align: center;
+  font-family:Oswald;
   font-size: 60px;
+  visibility: hidden;
 }
 #main{
 	
@@ -29,25 +70,30 @@ h1{
 	width: 0 auto;
 }
 #sunrise{
+  font-family: Oswald;
+  visibility: hidden;
   font-size: 45px;
 	position: fixed;
 	display: inline-block;
-	background: #FF594F;
+	background: indianred;
 	height: 40%;
-    width: 30%;
-    right: 23%;
-    left: 5%;
-    top: 30%;
-    border-radius: 15px;
-    text-align: center;
+  width: 30%;
+  right: 23%;
+  left: 5%;
+  top: 30%;
+  border-radius: 15px;
+  text-align: center;
+  
     
     
 }
 #sunset{
+  font-family: Oswald;
+  visibility: hidden;
   font-size: 45px;
 	position: fixed;
 	display: inline-block;
-	background: #FF594F;
+	background: indianred;
 	height: 40%;
     width: 30%;
     right: 30%;
@@ -60,8 +106,8 @@ h1{
 }
 .imgSun{
 
-  width: 150px;
-  height: 150px;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 p{
@@ -91,6 +137,7 @@ body {
 }
 body {
   background: black;
+  font-family: Lato;
   font: 13px monospace;
   color: #FFFFFF;
 }
